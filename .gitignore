@@ -1,0 +1,81 @@
+# Arquivos e diretórios compilados/gerados pelo Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Arquivos específicos de IDE
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# VS Code
+.vscode/
+.code-workspace
+
+# Arquivos temporários do sistema operacional
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# Arquivos de log
+*.log
+log/
+logs/
+
+# Arquivos de banco de dados H2
+*.db
+*.mv.db
+*.trace.db
+
+# Arquivos de cache de Maven
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Arquivos específicos do JavaFX/Maven
+dependency-reduced-pom.xml
+hs_err_pid*
+.jfx/
+
+# Arquivos de configuração local que podem conter informações sensíveis
+src/main/resources/application.properties
+src/main/resources/application-*.properties
+!src/main/resources/application-example.properties
+
+# Arquivos específicos do Hibernate
+hibernate.cfg.xml.bak
