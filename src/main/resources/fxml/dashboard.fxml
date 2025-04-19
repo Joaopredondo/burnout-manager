@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.burnoutmanager.controller.DashboardController">
+   <top>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Dashboard - Resumo de Burnout" textFill="#2c3e50">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Separator />
+            <HBox spacing="20.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #e8f5e9; -fx-padding: 10; -fx-background-radius: 5;">
+                     <children>
+                        <Label text="Funcionários Cadastrados" />
+                        <Label fx:id="lblTotalFuncionarios" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #e3f2fd; -fx-padding: 10; -fx-background-radius: 5;">
+                     <children>
+                        <Label text="Avaliações Realizadas" />
+                        <Label fx:id="lblAvaliacoesRealizadas" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #fff8e1; -fx-padding: 10; -fx-background-radius: 5;">
+                     <children>
+                        <Label text="Risco Alto" />
+                        <Label fx:id="lblRiscoAlto" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #ffebee; -fx-padding: 10; -fx-background-radius: 5;">
+                     <children>
+                        <Label text="Risco Crítico" />
+                        <Label fx:id="lblRiscoCritico" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Análise de Risco">
+               <content>
+                  <HBox spacing="20.0">
+                     <children>
+                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Distribuição por Nível de Risco">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <PieChart fx:id="graficoNivelRisco" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Burnout por Departamento">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <BarChart fx:id="graficoDepartamentos" VBox.vgrow="ALWAYS">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </content>
+          </Tab>
+          <Tab text="Funcionários em Risco Crítico">
+               <content>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label text="Funcionários em Risco Crítico">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tabelaRiscoCritico" VBox.vgrow="ALWAYS">
+                          <columns>
+                            <TableColumn prefWidth="150.0" text="Nome" />
+                            <TableColumn prefWidth="120.0" text="Departamento" />
+                            <TableColumn prefWidth="100.0" text="Cargo" />
+                            <TableColumn prefWidth="120.0" text="Última Avaliação" />
+                            <TableColumn prefWidth="120.0" text="Nível Exaustão" />
+                            <TableColumn prefWidth="120.0" text="Nível Cinismo" />
+                            <TableColumn prefWidth="120.0" text="Nível Ineficácia" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab text="Recomendações Pendentes">
+               <content>
+                  <VBox spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label text="Recomendações Pendentes de Implementação">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tabelaRecomendacoesPendentes" VBox.vgrow="ALWAYS">
+                          <columns>
+                            <TableColumn prefWidth="200.0" text="Descrição" />
+                            <TableColumn prefWidth="150.0" text="Funcionário" />
+                            <TableColumn prefWidth="100.0" text="Tipo" />
+                            <TableColumn prefWidth="100.0" text="Data" />
+                            <TableColumn prefWidth="100.0" text="Prazo" />
+                            <TableColumn prefWidth="120.0" text="Responsável" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <padding>
+      <Insets bottom="10.0" />
+   </padding>
+</BorderPane> 
